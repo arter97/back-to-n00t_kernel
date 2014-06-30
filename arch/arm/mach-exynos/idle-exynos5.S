@@ -183,7 +183,7 @@ skip:
 	mcr	p15, 2, r10, c0, c0, 0		@ select current cache level in cssr
 	dsb
 	isb
-	mov	pc, lr
+	ret	lr
 ENDPROC(exynos5_L1_dcache_flush)
 
 	/*
