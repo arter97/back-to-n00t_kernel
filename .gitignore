@@ -45,6 +45,9 @@ modules.builtin
 /Module.markers
 /Module.symvers
 
+/i9300.img
+/m440s.img
+
 #
 # git files that we don't want to ignore even it they are dot-files
 #
