@@ -370,7 +370,7 @@ on fs
     chown system system /sys/class/graphics/fb0/lcdfreq/level
 
 # Permissions for mDNIe
-    chown system system /sys/class/mdnie/mdnie/mode
+    chown system media_rw /sys/class/mdnie/mdnie/mode
     chown system media_rw /sys/class/mdnie/mdnie/scenario
     chown system system /sys/class/mdnie/mdnie/accessibility
     chown system media_rw /sys/class/mdnie/mdnie/outdoor
