@@ -251,7 +251,7 @@ static void death_by_event(unsigned long ul_conntrack)
 	if (nf_conntrack_event(IPCT_DESTROY, ct) < 0) {
 		/* bad luck, let's retry again */
 		ct->timeout.expires = jiffies +
-			(random32() % net->ct.sysctl_events_retry_timeout);
+			(prandom_u32() % net->ct.sysctl_events_retry_timeout);
 		add_timer(&ct->timeout);
 		return;
 	}
@@ -275,7 +275,7 @@ void nf_ct_insert_dying_list(struct nf_conn *ct)
 	/* set a new timer to retry event delivery */
 	setup_timer(&ct->timeout, death_by_event, (unsigned long)ct);
 	ct->timeout.expires = jiffies +
-		(random32() % net->ct.sysctl_events_retry_timeout);
+		(prandom_u32() % net->ct.sysctl_events_retry_timeout);
 	add_timer(&ct->timeout);
 }
 EXPORT_SYMBOL_GPL(nf_ct_insert_dying_list);
