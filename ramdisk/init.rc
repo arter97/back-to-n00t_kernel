@@ -591,9 +591,6 @@ on boot
 # Set this property so surfaceflinger is not started by system_init
     setprop system_init.startsurfaceflinger 0
 
-# Define default initial receive window size in segments.
-    setprop net.tcp.default_init_rwnd 60
-
     class_start core
     class_start main
 
@@ -630,15 +627,6 @@ on property:selinux.reload_policy=1
 
 on property:sys.powerctl=*
     powerctl ${sys.powerctl}
-
-# system server cannot write to /proc/sys files,
-# and chown/chmod does not work for /proc/sys/ entries.
-# So proxy writes through init.
-on property:sys.sysctl.extra_free_kbytes=*
-    write /proc/sys/vm/extra_free_kbytes ${sys.sysctl.extra_free_kbytes}
-# "tcp_default_init_rwnd" Is too long!
-on property:sys.sysctl.tcp_def_init_rwnd=*
-    write /proc/sys/net/ipv4/tcp_default_init_rwnd ${sys.sysctl.tcp_def_init_rwnd}
 
 ## Daemon processes to be run by init.
 ##
