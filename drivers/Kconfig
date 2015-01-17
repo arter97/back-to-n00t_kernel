@@ -162,7 +162,6 @@ source "drivers/iommu/Kconfig"
 
 # FELICA
 source "drivers/felica/Kconfig"
-
 source "drivers/ice4_fpga/Kconfig"
 
 source "drivers/secfilter/Kconfig"
