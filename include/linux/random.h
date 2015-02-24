@@ -107,7 +107,7 @@ static inline int arch_has_random_seed(void)
 #endif
 
 /* Pseudo random number generator from numerical recipes. */
-static inline u32 next_pseudo_prandom_u32(u32 seed)
+static inline u32 next_pseudo_random32(u32 seed)
 {
 	return seed * 1664525 + 1013904223;
 }
